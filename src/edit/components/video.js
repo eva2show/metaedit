@@ -6,6 +6,8 @@ class MVideo  extends Container {
 
   constructor(){
 
+
+
   }
 
   layout(){

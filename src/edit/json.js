@@ -18,7 +18,8 @@ const default_project = {
             title:"",
             visible:true,
             type:"", // audio | video | photo | button | buttonGroup | frame ｜ dialog
-            other:"..."
+            file:"d:/a.video",
+            layout:"",
           }
         ]
       }

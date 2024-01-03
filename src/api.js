@@ -26,10 +26,7 @@ export const selectDir = _=>{
 // 保存文件，文件路径
 export const saveFile = async _ =>{
 
-  console.log("saveFile",_);
-
   let a = await ipcRenderer.invoke('dialog:saveFile',_);
-  console.log(a);
 
   return a
 }
@@ -59,6 +56,7 @@ function assetsServe() {
 
 
   app.get('/file/:scene/:name', function (req, res, next) {
+
     var options = {
       root: '/Users/eva/work/git/metaedit/public',
       dotfiles: 'deny',
@@ -68,9 +66,9 @@ function assetsServe() {
       }
     }
 
-    const {name,scene} = req.params;
+    const { name, scene } = req.params;
 
-    console.log("name:",name,scene);
+    console.log( "name:", name, scene );
     // res.sendFile(fileName, options, function (err) {
     //   if (err) {
     //     console.log("fileName-err",err);
@@ -80,7 +78,7 @@ function assetsServe() {
 
     res.send(`${name}-${scene}`);
 
-  })
+  });
 
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

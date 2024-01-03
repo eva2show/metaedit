@@ -10,6 +10,8 @@ class App extends Container{
 
     this.pixiApp = pixiApp;
     this.json = json;
+
+    // k = name  v = scene;
     this.scenes = new Map;
 
     this.init(json);

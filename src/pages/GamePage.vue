@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center" ref="gmpage">
 
     <div class="gm-view" ref="gm"/>
   </q-page>
@@ -15,14 +15,25 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { editor } from "../edit/editor";
 
 const gm = ref(null);
+const gmpage = ref(null);
 
 
 onMounted(_=>{
 
   let container = gm.value;
-  console.log(gm.value);
+
+  // let container = gmpage.value.$el;
+  let rect = container.getBoundingClientRect();
+
+  console.log(rect);
+  console.log(container);
+
+  // container.style.width = "340px";
+  // container.style.height = "90vh";
+  editor.init({ container });
 
 });
 
@@ -32,8 +43,9 @@ onMounted(_=>{
 <style>
 
 .gm-view{
-  max-height: 90vh;
-  min-width: 300px;
-  background: #fff;
+  width: 360px;
+  height: 740px;
+  background-color: #aaa;
 }
+
 </style>
